@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import {fetchData} from '../utils/fetchData';
+import MediaRow from '../components/MediaRow';
 
 const Home = () => {
   const [mediaArray, setMediaArray] = useState([]);
@@ -7,8 +8,24 @@ const Home = () => {
   useEffect(() => {
     const getMedia = async () => {
       try {
-        const json = await fetchData('test.json');
-        setMediaArray(json);
+        const json = await fetchData(
+          import.meta.env.VITE_MEDIA_API + '/media'
+        );
+
+        const newArray = await Promise.all(
+          json.map(async (item) => {
+            const result = await fetchData(
+              import.meta.env.VITE_AUTH_API + '/users/' + item.user_id
+            );
+
+            return {
+              ...item,
+              username: result.username,
+            };
+          })
+        );
+
+        setMediaArray(newArray);
       } catch (error) {
         console.error(error);
       }
@@ -17,12 +34,13 @@ const Home = () => {
     getMedia();
   }, []);
 
-  console.log(mediaArray);
-
   return (
     <>
       <h1>Home</h1>
-      <p>Welcome to the home page!</p>
+
+      {mediaArray.map((media) => (
+        <MediaRow key={media.media_id} media={media} />
+      ))}
     </>
   );
 };
