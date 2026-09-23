@@ -21,4 +21,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 application:
 
-https://users.metropolia.fi/~princeaw/hooks/
+https://users.metropolia.fi/~princeaw/custom-hooks/

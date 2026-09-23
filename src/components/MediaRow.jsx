@@ -1,9 +1,9 @@
-const MediaRow = ({media}) => {
+const MediaRow = ({item, setSelectedItem}) => {
   return (
-    <div>
-      <h2>{media.title}</h2>
-      <p>Owner: {media.username}</p>
-    </div>
+    <tr onClick={() => setSelectedItem(item)}>
+      <td>{item.title}</td>
+      <td>Owner: {item.username}</td>
+    </tr>
   );
 };
 
