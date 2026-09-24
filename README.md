@@ -21,4 +21,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 application:
 
-https://users.metropolia.fi/~princeaw/custom-hooks/
+## Deployments
+
+- Routing: https://users.metropolia.fi/~princeaw/wsk-routing/
+- Hooks: https://users.metropolia.fi/~princeaw/hooks/
+- Custom Hooks: https://users.metropolia.fi/~princeaw/custom-hooks/
+- Forms: https://users.metropolia.fi/~princeaw/forms/
