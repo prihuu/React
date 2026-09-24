@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteBase /~princeaw/forms/
+RewriteBase /~princeaw/context/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
