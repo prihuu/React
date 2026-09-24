@@ -29,3 +29,4 @@ application:
 - Forms: https://users.metropolia.fi/~princeaw/forms/
 - Context: https://users.metropolia.fi/~princeaw/context/
 - Upload: https://users.metropolia.fi/~princeaw/upload/
+- Tailwind: https://users.metropolia.fi/~princeaw/tailwind/
