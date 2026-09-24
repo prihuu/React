@@ -34,13 +34,13 @@ const useMedia = () => {
   }, []);
 
   const postMedia = async (file, inputs, token) => {
-  const media = {
-    filename: file.data.filename,
-    title: inputs.title,
-    description: inputs.description,
-    filesize: file.data.filesize,
-    media_type: file.data.media_type,
-  };
+    const media = {
+      filename: file.data.filename,
+      title: inputs.title,
+      description: inputs.description,
+      filesize: file.data.filesize,
+      media_type: file.data.media_type,
+    };
 
     const fetchOptions = {
       method: 'POST',
@@ -59,7 +59,46 @@ const useMedia = () => {
     return result;
   };
 
-  return {mediaArray, postMedia};
+  const deleteMedia = async (mediaId, token) => {
+    const fetchOptions = {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const result = await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media/' + mediaId,
+      fetchOptions
+    );
+
+    return result;
+  };
+
+  const modifyMedia = async (mediaId, inputs, token) => {
+    const fetchOptions = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(inputs),
+    };
+
+    const result = await fetchData(
+      import.meta.env.VITE_MEDIA_API + '/media/' + mediaId,
+      fetchOptions
+    );
+
+    return result;
+  };
+
+  return {
+    mediaArray,
+    postMedia,
+    deleteMedia,
+    modifyMedia,
+  };
 };
 
 const useAuthentication = () => {
