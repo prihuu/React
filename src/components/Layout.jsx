@@ -10,9 +10,9 @@ const Layout = () => {
   }, []);
 
   return (
-    <div>
-      <nav>
-        <ul>
+    <div className="min-h-screen">
+      <nav className="bg-gray-800 px-6 py-4 shadow-md">
+        <ul className="flex gap-6 text-white *:rounded *:px-3 *:py-2 *:hover:bg-gray-700 *:hover:text-blue-300">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -43,7 +43,7 @@ const Layout = () => {
         </ul>
       </nav>
 
-      <main>
+      <main className="mx-auto max-w-6xl p-6">
         <Outlet />
       </main>
     </div>
